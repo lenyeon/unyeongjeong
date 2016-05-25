@@ -5,5 +5,14 @@
     <hr/>
     {{ post.content }}
     <hr/>
-    <a href="{% url "blog:post_list" %}”> 글 목록으로 </a>
+    <a href="{% url 'blog:post_list' %}"> 글 목록으로 </a>
+
+{% if messages %}
+    {% for message in messages %}
+         <div class="alert alert-{{ message.tags }}">
+             {{ message }}
+         </div>
+     {% endfor %}
+ {% endif %}
+
 {% endblock %}
